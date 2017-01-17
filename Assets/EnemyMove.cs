@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyMove : MonoBehaviour
 {
-    private int LRmoveCounter = 0;
+    private float LRmoveCounter = 0;
     private float LRmovement = 0;
 
     public GameObject explotion;
@@ -26,9 +26,9 @@ public class EnemyMove : MonoBehaviour
 
             gameObject.transform.position += new Vector3(this.LRmovement, -0.021f, 0);
 
-            this.LRmoveCounter++;
-            if (this.LRmoveCounter == 60)
-            {
+            LRmoveCounter += Time.deltaTime;
+            if (this.LRmoveCounter >= 0.3f)
+            {          
                 this.LRmoveCounter = 0;
             }
         }        
